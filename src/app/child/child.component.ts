@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -6,9 +6,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./child.component.css'],
 })
 export class ChildComponent implements OnInit {
-  @Input() title: string | undefined;
+  @Output() newMessageEvent = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  sendMessage() {
+    this.newMessageEvent.emit('Hello, form child component');
+  }
 }

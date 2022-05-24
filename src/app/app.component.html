@@ -1,3 +1,3 @@
 <h2 class="app-component-heading">{{title}}</h2>
 
-<app-child [title]="'Angular-Component-Communitcation-(Child Component)'"></app-child>
+<app-child (newMessageEvent)="receiveMessage($event)"></app-child>
